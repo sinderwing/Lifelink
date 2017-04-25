@@ -7,6 +7,6 @@ A life counter for Magic: the Gathering is a tool players use to keep track of t
 ![alt text](https://github.com/johnnil/Lifelink/blob/master/Lifelink%20mockup.png)
 
 Other features:
-+Customizable background (single colour)
-+Visible username
-+Multiple buttons for different increments
+* Customizable background (single colour)
+* Visible username
+* Multiple buttons for different increments
