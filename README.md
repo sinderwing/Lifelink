@@ -8,7 +8,14 @@ A life counter for Magic: the Gathering is a tool players use to keep track of t
 
 ___
 
-Other features:
+Planned features:
 * Customizable background (single colour)
 * Visible username
 * Multiple buttons for different increments
+
+Suggestions (if time allows):
+* Poison counters
+* Commander damage
+* Turn tracker
+* Recursive life loss (Phyrexian Arena etc.)
+* Chess clock
