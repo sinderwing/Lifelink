@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Lifelink</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_activity_lobby_creation">LobbyCreation</string>
+
+    <string name="title_activity_lobby_joining">LobbyJoining</string>
+
+    <string name="title_activity_ingame">Ingame</string>
+</resources>
