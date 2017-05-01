@@ -9,4 +9,13 @@
     <string name="title_activity_lobby_joining">LobbyJoining</string>
 
     <string name="title_activity_ingame">Ingame</string>
+    <string name="create_lobby">Create Lobby</string>
+    <string name="join_lobby">Join Lobby</string>
+    <string name="set_color">set color</string>
+    <string name="change_name">change name</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_main22">Main22Activity</string>
+    <string name="change_color">change color</string>
+    <string name="title_activity_color_change">ColorChange</string>
+    <string name="title_activity_name_change">NameChange</string>
 </resources>

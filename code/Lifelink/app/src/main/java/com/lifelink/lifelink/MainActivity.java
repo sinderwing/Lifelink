@@ -117,7 +117,34 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, LobbyCreation.class);
                 startActivity(intent);
             }
-        }
+        });
+
+        Button gotoJoin = (Button) findViewById(R.id.gotoJoin);
+        gotoJoin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LobbyJoining.class);
+                startActivity(intent);
+            }
+        });
+
+        Button gotoChangeName = (Button) findViewById(R.id.gotoChangeName);
+        gotoJoin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, NameChange.class);
+                startActivity(intent);
+            }
+        });
+
+        Button gotoChangeColor = (Button) findViewById(R.id.gotoChangeColor);
+        gotoJoin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ColorChange.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
