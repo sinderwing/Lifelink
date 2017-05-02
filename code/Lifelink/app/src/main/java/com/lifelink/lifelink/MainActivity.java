@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         Button gotoIngame = (Button) findViewById(R.id.gotoIngame);
         gotoIngame.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,6 +2,7 @@ package com.lifelink.lifelink;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -15,6 +16,7 @@ public class Ingame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingame);
+
         final TextView display = (TextView) findViewById(R.id.lifeTotalDisplay);
         display.setText(String.valueOf(this.getLifeTotal()));
 
