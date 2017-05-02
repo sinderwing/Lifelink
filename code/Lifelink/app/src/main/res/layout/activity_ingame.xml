@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="com.lifelink.lifelink.Ingame">
 
-</android.support.constraint.ConstraintLayout>
+    <EditText
+        android:id="@+id/lifeTotalDisplay"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="@string/life"
+        android:textAlignment="center"
+        android:textSize="70sp"
+        android:layout_marginBottom="65dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/minus1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:text="@string/_1"
+        android:textSize="30sp"
+        android:layout_marginRight="23dp"
+        android:layout_marginEnd="23dp"
+        android:layout_alignTop="@+id/lifeTotalDisplay"
+        android:layout_toLeftOf="@+id/lifeTotalDisplay"
+        android:layout_toStartOf="@+id/lifeTotalDisplay"
+        android:layout_marginTop="35dp" />
+
+    <Button
+        android:id="@+id/plus1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:text="@string/plus1"
+        android:textSize="30sp"
+        android:layout_alignTop="@+id/lifeTotalDisplay"
+        android:layout_toRightOf="@+id/lifeTotalDisplay"
+        android:layout_toEndOf="@+id/lifeTotalDisplay"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="35dp" />
+
+</RelativeLayout>
