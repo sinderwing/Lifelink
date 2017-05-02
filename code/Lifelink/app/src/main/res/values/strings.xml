@@ -1,22 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Lifelink</string>
-
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-
-    <string name="title_activity_lobby_creation">LobbyCreation</string>
-
     <string name="title_activity_lobby_joining">LobbyJoining</string>
-
+    <string name="title_activity_lobby_creation">LobbyCreation</string>
     <string name="title_activity_ingame">Ingame</string>
-    <string name="create_lobby">Create Lobby</string>
-    <string name="join_lobby">Join Lobby</string>
-    <string name="set_color">set color</string>
-    <string name="change_name">change name</string>
-    <string name="title_activity_main2">Main2Activity</string>
-    <string name="title_activity_main22">Main22Activity</string>
-    <string name="change_color">change color</string>
-    <string name="title_activity_color_change">ColorChange</string>
     <string name="title_activity_name_change">NameChange</string>
-
-    <string name="title_activity_new_main">NewMainActivity</string>
+    <string name="title_activity_color_change">ColorChange</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="create_lobby">Create Lobby</string>
+    <string name="change_color">Change Color</string>
+    <string name="change_name">Change Name</string>
+    <string name="join_lobby">Join Lobby</string>
+</resources>
