@@ -3,40 +3,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="com.lifelink.lifelink.Ingame">
 
-    <Button
-        android:id="@+id/plus1"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:text="+1"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+    <EditText
+        android:id="@+id/lifeTotalDisplay"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="@string/life"
+        android:textAlignment="center"
+        android:textSize="70sp"
+        android:layout_marginBottom="65dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/minus1"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginLeft="34dp"
-        android:layout_marginStart="34dp"
-        android:text="-1"
-        android:layout_alignBottom="@+id/plus1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="13dp" />
+        android:text="@string/_1"
+        android:textSize="30sp"
+        android:layout_marginRight="23dp"
+        android:layout_marginEnd="23dp"
+        android:layout_alignTop="@+id/lifeTotalDisplay"
+        android:layout_toLeftOf="@+id/lifeTotalDisplay"
+        android:layout_toStartOf="@+id/lifeTotalDisplay"
+        android:layout_marginTop="35dp" />
 
-    <EditText
-        android:id="@+id/lifeTotalDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:text="Life"
-        android:layout_above="@+id/minus1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="57dp" />
+    <Button
+        android:id="@+id/plus1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:text="@string/plus1"
+        android:textSize="30sp"
+        android:layout_alignTop="@+id/lifeTotalDisplay"
+        android:layout_toRightOf="@+id/lifeTotalDisplay"
+        android:layout_toEndOf="@+id/lifeTotalDisplay"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="35dp" />
 
 </RelativeLayout>

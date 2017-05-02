@@ -13,4 +13,7 @@
     <string name="change_color">Change Color</string>
     <string name="change_name">Change Name</string>
     <string name="join_lobby">Join Lobby</string>
+    <string name="_1">-1</string>
+    <string name="plus1">+1</string>
+    <string name="life">Life</string>
 </resources>
