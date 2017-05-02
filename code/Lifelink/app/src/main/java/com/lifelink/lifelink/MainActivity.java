@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button gotoChangeName = (Button) findViewById(R.id.gotoChangeName);
-        gotoJoin.setOnClickListener(new View.OnClickListener() {
+        gotoChangeName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, NameChange.class);
@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button gotoChangeColor = (Button) findViewById(R.id.gotoChangeColor);
-        gotoJoin.setOnClickListener(new View.OnClickListener() {
+        gotoChangeColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ColorChange.class);

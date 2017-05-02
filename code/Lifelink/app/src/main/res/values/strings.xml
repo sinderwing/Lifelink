@@ -18,4 +18,6 @@
     <string name="change_color">change color</string>
     <string name="title_activity_color_change">ColorChange</string>
     <string name="title_activity_name_change">NameChange</string>
+
+    <string name="title_activity_new_main">NewMainActivity</string>
 </resources>
