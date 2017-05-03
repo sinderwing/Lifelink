@@ -22,9 +22,9 @@ We also plan to do some sort of basic **beta testing** for the application where
 
 ![Main page](https://github.com/johnnil/Lifelink/blob/master/prototypes/MainPagePrimitivePrototype.png)
 
-![Creating Lobby](https://github.com/johnnil/Lifelink/blob/master/prototypes/CreatingLobbyPrimitiveDesign.png)
+![Creating Lobby](https://github.com/johnnil/Lifelink/blob/master/prototypes/CreatingLobbyPrimitivePrototype.png)
 
-![Joining Lobby](https://github.com/johnnil/Lifelink/blob/master/prototypes/JoiningLobbyPrimitivePrototype.png)
+![Joining Lobby](https://github.com/johnnil/Lifelink/blob/master/prototypes/JoiningLobbyPrimitiveDesign.png)
 
 ![In Game](https://github.com/johnnil/Lifelink/blob/master/prototypes/InGamePrimitiveDesign.png)
 
