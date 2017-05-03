@@ -24,7 +24,7 @@ We also plan to do some sort of basic **beta testing** for the application where
 
 ![Creating Lobby](https://github.com/johnnil/Lifelink/blob/master/prototypes/CreatingLobbyPrimitiveDesign.png)
 
-![Joining Lobby](https://github.com/johnnil/Lifelink/blob/master/prototypes/JoiningLobbyPrimitiveDesign.png)
+![Joining Lobby](https://github.com/johnnil/Lifelink/blob/master/prototypes/JoiningLobbyPrimitivePrototype.png)
 
 ![In Game](https://github.com/johnnil/Lifelink/blob/master/prototypes/InGamePrimitiveDesign.png)
 
