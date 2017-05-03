@@ -6,6 +6,18 @@ A life counter for Magic: the Gathering is a tool players use to keep track of t
 
 ![Our design vs. Convential design](https://github.com/johnnil/Lifelink/blob/master/prototypes/Lifelink%20mockup.png)
 
+## How to install and use
+
+There is no stable release yet of this project. If you still want to download and test it then you can clone the master branch and run it in Android Studios.
+
+We plan to release it on the **Google Play Store** once we get a stable enough version finished.
+
+## Testing strategy
+
+Our testing strategy is a combination of **unit testing** and regularly testing to use the application to try to find bugs/errors.
+
+We also plan to do some sort of basic **beta testing** for the application where we let people test the app and gather feedback from it such as: bugs found, is the design intuitive and is it easy to use in it's intended setting?
+
 ## Design prototypes
 
 ![Main page](https://github.com/johnnil/Lifelink/blob/master/prototypes/MainPagePrimitivePrototype.png)
@@ -16,10 +28,9 @@ A life counter for Magic: the Gathering is a tool players use to keep track of t
 
 ![In Game](https://github.com/johnnil/Lifelink/blob/master/prototypes/InGamePrimitiveDesign.png)
 
-
 ___
 
-## Possible features
+## Features
 
 Planned features:
 * Customizable background (single colour)
