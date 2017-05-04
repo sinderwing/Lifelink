@@ -1,12 +1,20 @@
 package com.lifelink.lifelink;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    EditText nameInput;
+    EditText colorInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,5 +67,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //Saved preferences
+        nameInput = (EditText) findViewById(R.id.nameInput);
+        //colorInput = (EditText) findViewById(R.id.colorInput);
+    }
+
+    /**
+     * Update and save user profile information
+     */
+    public void updateProfile (View view){
+        SharedPreferences playerProfile = getSharedPreferences("playerProfile", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = playerProfile.edit();
+        editor.putString("name", nameInput.getText().toString());
+        editor.putString("color", colorInput.getText().toString());
+        editor.apply();
+
+        Toast.makeText(this, "Updated!", Toast.LENGTH_SHORT);
     }
 }

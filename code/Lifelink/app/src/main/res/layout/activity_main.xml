@@ -3,7 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="com.lifelink.lifelink.MainActivity">
+
+    <EditText
+        android:id="@+id/colorInput"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/nameInput"
+        android:layout_alignLeft="@+id/nameInput"
+        android:layout_alignStart="@+id/nameInput" />
 
     <Button
         android:id="@+id/gotoCreate"
@@ -62,9 +73,52 @@
         android:id="@+id/gotoIngame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="gotoIngame"
+        android:text="To Ingame"
+        android:layout_below="@+id/gotoChangeName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="14dp" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/gotoIngame"
+        android:ems="10"
+        android:text="Name:" />
+
+    <EditText
+        android:id="@+id/nameInput"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/gotoIngame"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/updateInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="71dp"
-        android:onClick="gotoIngame"
-        android:text="To Ingame" />
+        android:onClick="updateProfile"
+        android:text="Update" />
+
+    <EditText
+        android:id="@+id/color"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/name"
+        android:layout_below="@+id/name"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Color:" />
 </RelativeLayout>
