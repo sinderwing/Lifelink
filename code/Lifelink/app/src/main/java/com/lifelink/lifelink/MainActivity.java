@@ -70,11 +70,15 @@ public class MainActivity extends AppCompatActivity {
 
         //Saved preferences
         nameInput = (EditText) findViewById(R.id.nameInput);
-        //colorInput = (EditText) findViewById(R.id.colorInput);
+        colorInput = (EditText) findViewById(R.id.colorInput);
+
+        SharedPreferences playerProfile = getSharedPreferences("playerProfile", Context.MODE_PRIVATE);
+        nameInput.setText(playerProfile.getString("name", "empty"));
+        colorInput.setText(playerProfile.getString("color", "ffffffff")); //color white if nothing else
     }
 
     /**
-     * Update and save user profile information
+     * Update and save user profile information (name and color)
      */
     public void updateProfile (View view){
         SharedPreferences playerProfile = getSharedPreferences("playerProfile", Context.MODE_PRIVATE);
@@ -84,6 +88,6 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("color", colorInput.getText().toString());
         editor.apply();
 
-        Toast.makeText(this, "Updated!", Toast.LENGTH_SHORT);
+        Toast.makeText(this, "Updated!", Toast.LENGTH_SHORT).show();
     }
 }

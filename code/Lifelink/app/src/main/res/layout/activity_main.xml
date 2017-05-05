@@ -74,21 +74,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="gotoIngame"
-        android:text="To Ingame"
+        android:text="@string/to_ingame"
         android:layout_below="@+id/gotoChangeName"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="14dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/name"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/gotoIngame"
         android:ems="10"
-        android:text="Name:" />
+        android:text="@string/name"
+        android:textSize="20sp"
+        android:layout_alignBaseline="@+id/nameInput"
+        android:layout_alignBottom="@+id/nameInput"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/nameInput"
@@ -107,18 +109,18 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:onClick="updateProfile"
-        android:text="Update" />
+        android:text="@string/update" />
 
-    <EditText
+    <TextView
         android:id="@+id/color"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/name"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/name"
-        android:layout_below="@+id/name"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Color:" />
+        android:text="@string/color"
+        android:textSize="20sp"
+        android:layout_alignBaseline="@+id/colorInput"
+        android:layout_alignBottom="@+id/colorInput"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
