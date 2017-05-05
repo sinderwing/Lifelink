@@ -16,4 +16,8 @@
     <string name="_1">-1</string>
     <string name="plus1">+1</string>
     <string name="life">Life</string>
+    <string name="color">Color:</string>
+    <string name="name">Name:</string>
+    <string name="to_ingame">To Ingame</string>
+    <string name="update">Update</string>
 </resources>

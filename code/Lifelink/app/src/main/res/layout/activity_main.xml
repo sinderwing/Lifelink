@@ -3,7 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="com.lifelink.lifelink.MainActivity">
+
+    <EditText
+        android:id="@+id/colorInput"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/nameInput"
+        android:layout_alignLeft="@+id/nameInput"
+        android:layout_alignStart="@+id/nameInput" />
 
     <Button
         android:id="@+id/gotoCreate"
@@ -62,9 +73,54 @@
         android:id="@+id/gotoIngame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="gotoIngame"
+        android:text="@string/to_ingame"
+        android:layout_below="@+id/gotoChangeName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="14dp" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="@string/name"
+        android:textSize="20sp"
+        android:layout_alignBaseline="@+id/nameInput"
+        android:layout_alignBottom="@+id/nameInput"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/nameInput"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/gotoIngame"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/updateInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="71dp"
-        android:onClick="gotoIngame"
-        android:text="To Ingame" />
+        android:onClick="updateProfile"
+        android:text="@string/update" />
+
+    <TextView
+        android:id="@+id/color"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="@string/color"
+        android:textSize="20sp"
+        android:layout_alignBaseline="@+id/colorInput"
+        android:layout_alignBottom="@+id/colorInput"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
