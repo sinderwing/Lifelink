@@ -1,9 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lifelink.lifelink.LobbyCreation">
+    android:background="@color/white"
+    tools:context="com.lifelink.lifelink.Ingame"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
-</android.support.constraint.ConstraintLayout>
+    <!--
+        TextView with the text "Starting Life"
+    -->
+    <TextView
+        android:id="@+id/startingLifeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Startig LifeCount"
+        android:textSize="20sp"
+        android:layout_alignTop="@+id/setLifeCount"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp" />
+
+    <!--
+        Seekbar to set starting life count.
+    -->
+    <SeekBar
+        android:id="@+id/setLifeCount"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:progress="20"
+        android:secondaryProgress="20"
+        android:layout_marginTop="94dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <!--
+        Number field that displays the current starting
+    -->
+    <TextView
+        android:id="@+id/currentLifeCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="This value should change"
+        android:layout_below="@+id/startingLifeText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <!--
+        TextView that informs the user what the togglebutton does.
+    -->
+    <TextView
+        android:id="@+id/stringOnOff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Time limit"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/gotoInLobby"
+        android:layout_toStartOf="@+id/gotoInLobby"
+        android:layout_marginRight="19dp"
+        android:layout_marginEnd="19dp" />
+    <!--
+        ToggleButton to set time settings on or off.
+    -->
+    <ToggleButton
+        android:id="@+id/setTimeOnOff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/stringOnOff"
+        android:layout_alignLeft="@+id/gotoInLobby"
+        android:layout_alignStart="@+id/gotoInLobby"
+        android:layout_marginLeft="72dp"
+        android:layout_marginStart="72dp" />
+
+    <!--
+        Seekbar to set starting time value.
+    -->
+    <SeekBar
+        android:id="@+id/setTimeValue"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:max="60"
+        android:progress="30"
+        android:secondaryProgress="30"
+        android:layout_marginBottom="67dp"
+        android:layout_above="@+id/gotoInLobby"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <!--
+        Button to go to InLobby.
+    -->
+    <Button
+        android:id="@+id/gotoInLobby"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create"
+        android:onClick="gotoInLobby"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
