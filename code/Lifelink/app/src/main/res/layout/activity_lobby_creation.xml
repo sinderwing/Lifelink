@@ -1,9 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lifelink.lifelink.LobbyCreation">
+    android:background="@color/white"
+    tools:context="com.lifelink.lifelink.Ingame"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
-</android.support.constraint.ConstraintLayout>
+    <!--
+        TextView with the text "Starting Life"
+    -->
+    <TextView
+        android:id="@+id/startingLifeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Startig LifeCount"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp" />
+
+    <!--
+        Seekbar to set starting life count.
+    -->
+    <SeekBar
+        android:id="@+id/setLifeCount"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:progress="20"
+        android:max="50"
+        android:secondaryProgress="20"
+        android:layout_below="@+id/startingLifeText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp" />
+
+    <!--
+        Number field that displays the current starting
+    -->
+    <TextView
+        android:id="@+id/currentLifeCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Current life count"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/setLifeCount"
+        android:layout_centerHorizontal="true" />
+
+    <!--
+        TextView that informs the user what the togglebutton does.
+    -->
+    <TextView
+        android:id="@+id/stringOnOff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Time on/off"
+        android:layout_above="@+id/setTimeValue"
+        android:layout_toLeftOf="@+id/startingLifeText"
+        android:layout_toStartOf="@+id/startingLifeText"
+        android:layout_marginBottom="54dp" />
+
+    <!--
+        ToggleButton to set time settings on or off.
+    -->
+    <ToggleButton
+        android:id="@+id/setTimeOnOff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/stringOnOff"
+        android:layout_alignBottom="@+id/stringOnOff"
+        android:layout_toRightOf="@+id/currentTimeValue"
+        android:layout_toEndOf="@+id/currentTimeValue" />
+
+    <!--
+        TextView that informs the user what the SeekBar under does.
+    -->
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time limit"
+        android:layout_above="@+id/setTimeValue"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp" />
+
+    <!--
+        Seekbar to set starting time value.
+    -->
+    <SeekBar
+        android:id="@+id/setTimeValue"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:max="60"
+        android:progress="30"
+        android:secondaryProgress="30"
+        android:layout_aligntTop=""
+        android:layout_marginBottom="93dp"
+        android:layout_above="@+id/gotoInLobby"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <!--
+        TextView that displays the current time value.
+    -->
+    <TextView
+        android:id="@+id/currentTimeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Current time"
+        android:layout_marginTop="28dp"
+        android:layout_alignTop="@+id/setTimeValue"
+        android:layout_centerHorizontal="true" />
+
+    <!--
+        Button to go to InLobby.
+    -->
+    <Button
+        android:id="@+id/gotoInLobby"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="40dp"
+        android:text="Create"
+        android:onClick="gotoInLobby"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp" />
+
+</RelativeLayout>
