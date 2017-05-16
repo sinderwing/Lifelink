@@ -20,4 +20,5 @@
     <string name="name">Name:</string>
     <string name="to_ingame">To Ingame</string>
     <string name="update">Update</string>
+    <string name="create">Create</string>
 </resources>

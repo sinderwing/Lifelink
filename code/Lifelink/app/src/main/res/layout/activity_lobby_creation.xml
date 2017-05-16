@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.lifelink.lifelink.Ingame"
+    tools:context="com.lifelink.lifelink.LobbyCreation"
     android:clipChildren="false"
     android:clipToPadding="false">
 
@@ -28,9 +28,6 @@
         android:id="@+id/setLifeCount"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:progress="20"
-        android:max="50"
-        android:secondaryProgress="20"
         android:layout_below="@+id/startingLifeText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp" />
@@ -93,10 +90,6 @@
         android:id="@+id/setTimeValue"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:max="60"
-        android:progress="30"
-        android:secondaryProgress="30"
-        android:layout_aligntTop=""
         android:layout_marginBottom="93dp"
         android:layout_above="@+id/gotoInLobby"
         android:layout_alignParentLeft="true"
@@ -120,13 +113,13 @@
     -->
     <Button
         android:id="@+id/gotoInLobby"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="40dp"
-        android:text="Create"
-        android:onClick="gotoInLobby"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_alignEnd="@+id/startingLifeText"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp" />
+        android:layout_alignRight="@+id/startingLifeText"
+        android:layout_marginBottom="13dp"
+        android:onClick="gotoInLobby"
+        android:text="@string/create" />
 
 </RelativeLayout>
