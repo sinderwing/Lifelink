@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences playerProfile = getSharedPreferences("playerProfile", Context.MODE_PRIVATE);
         nameInput.setText(playerProfile.getString("name", "empty"));
-        colorInput.setText(playerProfile.getString("color", "ffffff")); //color white if nothing else
+        colorInput.setText(playerProfile.getString("color", "#ffffff")); //color white if nothing else
     }
 
     /**

@@ -26,4 +26,12 @@
     <string name="startig_lifecount">Startig LifeCount</string>
     <string name="time_limit">Time limit</string>
     <string name="time_on_off">Time on/off</string>
+    <string name="_10">10</string>
+    <string name="_20">20</string>
+    <string name="_30">30</string>
+    <string name="opponent1">Opponent1</string>
+    <string name="opponent2">Opponent2</string>
+    <string name="opponent3">Opponent3</string>
+    <string name="pass_turn">Pass Turn</string>
+    <string name="_1_30">1:30</string>
 </resources>
