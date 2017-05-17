@@ -40,34 +40,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button gotoChangeName = (Button) findViewById(R.id.gotoChangeName);
-        gotoChangeName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, NameChange.class);
-                startActivity(intent);
-            }
-        });
-
-        Button gotoChangeColor = (Button) findViewById(R.id.gotoChangeColor);
-        gotoChangeColor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ColorChange.class);
-                startActivity(intent);
-            }
-        });
-
-
-        Button gotoIngame = (Button) findViewById(R.id.gotoIngame);
-        gotoIngame.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Ingame.class);
-                startActivity(intent);
-            }
-        });
-
         //Saved preferences
         nameInput = (EditText) findViewById(R.id.nameInput);
         colorInput = (EditText) findViewById(R.id.colorInput);

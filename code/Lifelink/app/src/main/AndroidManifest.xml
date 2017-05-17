@@ -40,16 +40,6 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_ingame"
             android:theme="@style/FullscreenTheme" />
-        <activity
-            android:name=".NameChange"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_name_change"
-            android:theme="@style/FullscreenTheme" />
-        <activity
-            android:name=".ColorChange"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_color_change"
-            android:theme="@style/FullscreenTheme" />
     </application>
 
 </manifest>
