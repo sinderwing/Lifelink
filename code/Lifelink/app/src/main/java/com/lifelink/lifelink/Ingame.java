@@ -38,6 +38,7 @@ public class Ingame extends AppCompatActivity {
         });
 
 /**
+ * DO WE EVEN KNOW WHO MADE THIS COMMENT? NOT SURE IF SAFE TO DELETE...
         //Display editor
         TextView.OnEditorActionListener exampleListener = new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView display, int actionId, KeyEvent event) {
