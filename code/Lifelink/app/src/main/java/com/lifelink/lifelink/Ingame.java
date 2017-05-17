@@ -1,12 +1,17 @@
 package com.lifelink.lifelink;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class Ingame extends AppCompatActivity {
@@ -14,10 +19,27 @@ public class Ingame extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences playerProfile = getSharedPreferences("playerProfile", Context.MODE_PRIVATE);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingame);
 
-        final TextView display = (TextView) findViewById(R.id.lifeTotalDisplay);
+        final EditText display = (EditText) findViewById(R.id.lifeTotalDisplay);
+        display.setBackgroundColor(Color.parseColor(playerProfile.getString("color", "#ffffff")));
+        display.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    setLifeTotal(display);
+
+                    //Hide the keyboard
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(display.getWindowToken(), 0);
+                    return true;
+                }
+                return false;
+            }
+        });
         display.setText(String.valueOf(this.getLifeTotal()));
 
         //Buttons
@@ -37,20 +59,16 @@ public class Ingame extends AppCompatActivity {
             }
         });
 
-/**
-        //Display editor
-        TextView.OnEditorActionListener exampleListener = new TextView.OnEditorActionListener() {
-            public boolean onEditorAction(TextView display, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_NULL
-                        && event.getAction() == KeyEvent.ACTION_DOWN) {
-                    setLifeTotal();
-                    updateLifeTotalDisplay(display);
-                    //example_confirm();//match this behavior to your 'Send' (or Confirm) button
-                }
-                return true;
-            }
-        }
- */
+        //TextViews
+        TextView opp1 = (TextView) findViewById(R.id.Opponent1);
+        TextView opp2 = (TextView) findViewById(R.id.Opponent2);
+        TextView opp3 = (TextView) findViewById(R.id.Opponent3);
+        TextView oppLife1 = (TextView) findViewById(R.id.OpponentLife1);
+        TextView oppLife2 = (TextView) findViewById(R.id.OpponentLife2);
+        TextView oppLife3 = (TextView) findViewById(R.id.OpponentLife3);
+
+        //TODO set opponents colors
+        //opponent1.setBackgroundResource("#ffffff") Take variables over Network connection
     }
 
     //Life counter implementation
@@ -59,7 +77,8 @@ public class Ingame extends AppCompatActivity {
         updateLifeTotalDisplay(display);
     }
 
-    public void setLifeTotal(int amount) {
+    public void setLifeTotal(EditText display) {
+        int amount = Integer.parseInt(display.getText().toString());
         lifeTotal = amount;
     }
 
