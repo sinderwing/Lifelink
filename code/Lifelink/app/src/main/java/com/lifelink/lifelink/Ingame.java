@@ -1,12 +1,15 @@
 package com.lifelink.lifelink;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class Ingame extends AppCompatActivity {
@@ -17,7 +20,22 @@ public class Ingame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingame);
 
-        final TextView display = (TextView) findViewById(R.id.lifeTotalDisplay);
+        final EditText display = (EditText) findViewById(R.id.lifeTotalDisplay);
+        display.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    setLifeTotal(display);
+
+                    //Hide the keyboard
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(display.getWindowToken(), 0);
+
+                    return true;
+                }
+                return false;
+            }
+        });
         display.setText(String.valueOf(this.getLifeTotal()));
 
         //Buttons
@@ -59,7 +77,8 @@ public class Ingame extends AppCompatActivity {
         updateLifeTotalDisplay(display);
     }
 
-    public void setLifeTotal(int amount) {
+    public void setLifeTotal(EditText display) {
+        int amount = Integer.parseInt(display.getText().toString());
         lifeTotal = amount;
     }
 
