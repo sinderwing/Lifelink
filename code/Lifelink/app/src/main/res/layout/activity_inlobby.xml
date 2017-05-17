@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.lifelink.lifelink.Ingame">
+    tools:context="com.lifelink.lifelink.InLobby">
 
 
 
@@ -13,8 +13,11 @@
     -->
     <Button
         android:id="@+id/startGame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:text="Start!" />
 
 </RelativeLayout>
