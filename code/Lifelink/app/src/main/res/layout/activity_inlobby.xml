@@ -6,18 +6,38 @@
     android:background="@color/white"
     tools:context="com.lifelink.lifelink.InLobby">
 
+    <LinearLayout
+        android:id="@+id/in_lobby_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="27dp">
 
+        <fragment
+            class="com.lifelink.lifelink.ConnectedPeersFragment"
+            android:id="@+id/in_lobby_player_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- Preview: layout=@layout/ -->
+        </fragment>
+    </LinearLayout>
 
     <!--
         Button to start the game.
     -->
     <Button
         android:id="@+id/startGame"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Game"
+        android:onClick="tryToStartGame"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
-        android:text="Start!" />
+        android:layout_marginBottom="17dp" />
 
 </RelativeLayout>
