@@ -96,7 +96,6 @@
         android:max="60"
         android:progress="30"
         android:secondaryProgress="30"
-        android:layout_aligntTop=""
         android:layout_marginBottom="93dp"
         android:layout_above="@+id/gotoInLobby"
         android:layout_alignParentLeft="true"

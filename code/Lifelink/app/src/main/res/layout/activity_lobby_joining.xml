@@ -6,4 +6,22 @@
     android:layout_height="match_parent"
     tools:context="com.lifelink.lifelink.LobbyJoining">
 
+    <LinearLayout
+        android:id="@+id/join_lobby_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="27dp">
+            <fragment
+                class="com.lifelink.lifelink.HostingPeersFragment"
+                android:id="@+id/joining_lobby_hosting_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
