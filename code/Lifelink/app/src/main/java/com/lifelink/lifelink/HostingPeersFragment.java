@@ -17,11 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Fragment class for the connected players
  * Created by AngusLothian on 5/18/2017.
  */
-public class ConnectedPeersFragment extends ListFragment
-        implements WifiP2pManager.PeerListListener {
+public class HostingPeersFragment extends ListFragment implements WifiP2pManager.PeerListListener {
+
     private List<WifiP2pDevice> currentPeers = new ArrayList<WifiP2pDevice>();
     View contentView;
     private WifiP2pDevice device;
@@ -128,4 +127,6 @@ public class ConnectedPeersFragment extends ListFragment
                 return "Unknown";
         }
     }
+
+
 }

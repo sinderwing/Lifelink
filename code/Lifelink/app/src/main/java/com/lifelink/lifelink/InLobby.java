@@ -136,7 +136,7 @@ public class InLobby extends FragmentActivity implements
             Toast.makeText(this, "Channel lost. Attempting again", Toast.LENGTH_SHORT).show();
             resetData();
             retryAgain = false;
-            wifiP2pManager.initialize(this, getMainLooper(), this);
+            channel = wifiP2pManager.initialize(this, getMainLooper(), this);
         } else {
             Toast.makeText(this,
                     "Channel is probably lost permanently. Try to Disable/Re-enable P2P.",
