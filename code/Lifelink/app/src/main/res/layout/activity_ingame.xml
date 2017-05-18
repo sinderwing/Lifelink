@@ -15,9 +15,9 @@
         android:text="@string/life"
         android:textAlignment="center"
         android:textSize="70sp"
-        android:layout_marginBottom="65dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/OpponentLife1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="113dp" />
 
     <Button
         android:id="@+id/minus1"
@@ -44,5 +44,107 @@
         android:layout_marginLeft="23dp"
         android:layout_marginStart="23dp"
         android:layout_marginTop="35dp" />
+
+    <TextView
+        android:id="@+id/Opponent1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/lifeTotalDisplay"
+        android:layout_toStartOf="@+id/lifeTotalDisplay"
+        android:text="@string/opponent1"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/Opponent3"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignBottom="@+id/Opponent1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/lifeTotalDisplay"
+        android:layout_toRightOf="@+id/lifeTotalDisplay"
+        android:text="@string/opponent3"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/Opponent2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/Opponent1"
+        android:layout_toRightOf="@+id/Opponent1"
+        android:text="@string/opponent2"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:layout_above="@+id/OpponentLife1" />
+
+    <TextView
+        android:id="@+id/OpponentLife1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:text="@string/_10"
+        android:textAlignment="center"
+        android:textSize="60sp"
+        android:layout_below="@+id/Opponent1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/OpponentLife3"
+        android:layout_toLeftOf="@+id/Opponent2"
+        android:layout_toStartOf="@+id/Opponent2" />
+
+    <TextView
+        android:id="@+id/OpponentLife2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_20"
+        android:textAlignment="center"
+        android:textSize="60sp"
+        android:layout_below="@+id/Opponent2"
+        android:layout_toRightOf="@+id/OpponentLife1"
+        android:layout_toLeftOf="@+id/OpponentLife3"
+        />
+
+    <TextView
+        android:id="@+id/OpponentLife3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_30"
+        android:textAlignment="center"
+        android:textSize="60sp"
+        android:layout_below="@+id/Opponent3"
+        android:layout_toRightOf="@+id/Opponent2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/pass"
+        android:layout_width="240dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="27dp"
+        android:backgroundTint="@color/green"
+        android:fontFamily="monospace"
+        android:text="@string/pass_turn"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/plus1"
+        android:layout_alignEnd="@+id/plus1" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/pass"
+        android:layout_alignBottom="@+id/pass"
+        android:layout_alignLeft="@+id/minus1"
+        android:layout_alignStart="@+id/minus1"
+        android:text="@string/_1_30"
+        android:textSize="45sp" />
 
 </RelativeLayout>

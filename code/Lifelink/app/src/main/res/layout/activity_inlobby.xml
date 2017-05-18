@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.lifelink.lifelink.Ingame">
+    tools:context="com.lifelink.lifelink.InLobby">
 
     <LinearLayout
         android:id="@+id/in_lobby_linear_layout"
@@ -13,10 +13,10 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:orientation="vertical"
+        android:layout_marginTop="22dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="27dp">
+        android:layout_alignParentStart="true">
 
         <fragment
             class="com.lifelink.lifelink.ConnectedPeersFragment"

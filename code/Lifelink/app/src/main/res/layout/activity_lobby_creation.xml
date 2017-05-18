@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.lifelink.lifelink.Ingame"
+    tools:context="com.lifelink.lifelink.LobbyCreation"
     android:clipChildren="false"
     android:clipToPadding="false">
 
@@ -15,7 +15,7 @@
         android:id="@+id/startingLifeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Startig LifeCount"
+        android:text="@string/startig_lifecount"
         android:textSize="20sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -28,9 +28,6 @@
         android:id="@+id/setLifeCount"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:progress="20"
-        android:max="50"
-        android:secondaryProgress="20"
         android:layout_below="@+id/startingLifeText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp" />
@@ -43,8 +40,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:text="Current life count"
-        android:layout_marginTop="18dp"
+        android:text="@string/current_life_count"
+        android:layout_marginTop="16dp"
         android:layout_below="@+id/setLifeCount"
         android:layout_centerHorizontal="true" />
 
@@ -56,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:text="Time on/off"
+        android:text="@string/time_on_off"
         android:layout_above="@+id/setTimeValue"
         android:layout_toLeftOf="@+id/startingLifeText"
         android:layout_toStartOf="@+id/startingLifeText"
@@ -71,8 +68,9 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/stringOnOff"
         android:layout_alignBottom="@+id/stringOnOff"
-        android:layout_toRightOf="@+id/currentTimeValue"
-        android:layout_toEndOf="@+id/currentTimeValue" />
+        android:layout_toEndOf="@+id/currentLifeCount"
+        android:layout_toRightOf="@+id/currentLifeCount"
+        android:checked="true" />
 
     <!--
         TextView that informs the user what the SeekBar under does.
@@ -81,10 +79,11 @@
         android:id="@+id/timeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Time limit"
         android:layout_above="@+id/setTimeValue"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="12dp" />
+        android:layout_marginBottom="12dp"
+        android:text="@string/time_limit"
+        android:visibility="visible" />
 
     <!--
         Seekbar to set starting time value.
@@ -93,13 +92,11 @@
         android:id="@+id/setTimeValue"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:max="60"
-        android:progress="30"
-        android:secondaryProgress="30"
-        android:layout_marginBottom="93dp"
         android:layout_above="@+id/gotoInLobby"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="93dp"
+        android:visibility="visible" />
 
     <!--
         TextView that displays the current time value.
@@ -108,24 +105,25 @@
         android:id="@+id/currentTimeValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/timeText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
         android:padding="5dp"
-        android:text="Current time"
-        android:layout_marginTop="28dp"
-        android:layout_alignTop="@+id/setTimeValue"
-        android:layout_centerHorizontal="true" />
+        android:text="@string/current_time"
+        android:visibility="visible" />
 
     <!--
         Button to go to InLobby.
     -->
     <Button
         android:id="@+id/gotoInLobby"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="40dp"
-        android:text="Create"
-        android:onClick="gotoInLobby"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_alignEnd="@+id/startingLifeText"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp" />
+        android:layout_alignRight="@+id/startingLifeText"
+        android:layout_marginBottom="13dp"
+        android:onClick="gotoInLobby"
+        android:text="@string/create" />
 
 </RelativeLayout>
