@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/Lifelink"
     tools:context="com.lifelink.lifelink.MainActivity">
 
     <EditText
@@ -11,6 +11,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:textColor="@color/white"
         android:inputType="textPersonName"
         android:layout_below="@+id/nameInput"
         android:layout_alignLeft="@+id/nameInput"
@@ -48,6 +49,7 @@
     <TextView
         android:id="@+id/name"
         android:layout_width="70dp"
+        android:textColor="@color/white"
         android:layout_height="wrap_content"
         android:ems="10"
         android:text="@string/name"
@@ -62,6 +64,7 @@
     <EditText
         android:id="@+id/nameInput"
         android:layout_width="200dp"
+        android:textColor="@color/white"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
@@ -83,6 +86,7 @@
         android:id="@+id/color"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:ems="10"
         android:text="@string/color"
         android:textSize="20sp"

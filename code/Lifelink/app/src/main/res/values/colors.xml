@@ -2,8 +2,9 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#ffffff</color>
     <color name="white">#ffffff</color>
-    <color name="green">#9cf19c</color>
+    <color name="green">#20ac20</color>
+    <color name="Lifelink">#212121</color>
     <color name="black_overlay">#66000000</color>
 </resources>

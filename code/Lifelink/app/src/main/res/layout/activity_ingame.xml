@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/Lifelink"
     tools:context="com.lifelink.lifelink.Ingame">
 
     <EditText
@@ -17,6 +17,7 @@
         android:textSize="70sp"
         android:layout_below="@+id/OpponentLife1"
         android:layout_centerHorizontal="true"
+        android:textColorHighlight="@color/white"
         android:layout_marginTop="113dp" />
 
     <Button
@@ -56,6 +57,7 @@
         android:layout_toStartOf="@+id/lifeTotalDisplay"
         android:text="@string/opponent1"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="18sp" />
 
     <TextView
@@ -70,6 +72,7 @@
         android:layout_toRightOf="@+id/lifeTotalDisplay"
         android:text="@string/opponent3"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="18sp" />
 
     <TextView
@@ -80,6 +83,7 @@
         android:layout_toEndOf="@+id/Opponent1"
         android:layout_toRightOf="@+id/Opponent1"
         android:text="@string/opponent2"
+        android:textColor="@color/white"
         android:textAlignment="center"
         android:textSize="18sp"
         android:layout_above="@+id/OpponentLife1" />
@@ -92,6 +96,7 @@
         android:textAlignment="center"
         android:textSize="60sp"
         android:layout_below="@+id/Opponent1"
+        android:textColor="@color/white"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignBottom="@+id/OpponentLife3"
@@ -104,6 +109,7 @@
         android:layout_height="wrap_content"
         android:text="@string/_20"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="60sp"
         android:layout_below="@+id/Opponent2"
         android:layout_toRightOf="@+id/OpponentLife1"
@@ -119,6 +125,7 @@
         android:textSize="60sp"
         android:layout_below="@+id/Opponent3"
         android:layout_toRightOf="@+id/Opponent2"
+        android:textColor="@color/white"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -132,6 +139,7 @@
         android:text="@string/pass_turn"
         android:textSize="25sp"
         android:textStyle="bold"
+        android:textColor="@color/white"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/plus1"
         android:layout_alignEnd="@+id/plus1" />
@@ -145,6 +153,7 @@
         android:layout_alignLeft="@+id/minus1"
         android:layout_alignStart="@+id/minus1"
         android:text="@string/_1_30"
+        android:textColor="@color/white"
         android:textSize="45sp" />
 
 </RelativeLayout>
