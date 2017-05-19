@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/Lifelink"
     tools:context="com.lifelink.lifelink.LobbyCreation"
     android:clipChildren="false"
     android:clipToPadding="false">
@@ -15,11 +15,12 @@
         android:id="@+id/startingLifeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/startig_lifecount"
+        android:text="@string/starting_lifecount"
+        android:textColor="@color/white"
         android:textSize="20sp"
+        android:layout_marginTop="65dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp" />
+        android:layout_centerHorizontal="true" />
 
     <!--
         Seekbar to set starting life count.
@@ -29,8 +30,12 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/startingLifeText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp" />
+        android:textColor="@color/white"
+        android:layout_marginTop="33dp"
+        android:layout_alignRight="@+id/startingLifeText"
+        android:layout_alignEnd="@+id/startingLifeText"
+        android:layout_alignLeft="@+id/gotoInLobby"
+        android:layout_alignStart="@+id/gotoInLobby" />
 
     <!--
         Number field that displays the current starting
@@ -42,6 +47,7 @@
         android:padding="5dp"
         android:text="@string/current_life_count"
         android:layout_marginTop="16dp"
+        android:textColor="@color/white"
         android:layout_below="@+id/setLifeCount"
         android:layout_centerHorizontal="true" />
 
@@ -54,6 +60,7 @@
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:text="@string/time_on_off"
+        android:textColor="@color/white"
         android:layout_above="@+id/setTimeValue"
         android:layout_toLeftOf="@+id/startingLifeText"
         android:layout_toStartOf="@+id/startingLifeText"
@@ -77,6 +84,7 @@
     -->
     <TextView
         android:id="@+id/timeText"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/setTimeValue"
@@ -90,19 +98,20 @@
     -->
     <SeekBar
         android:id="@+id/setTimeValue"
+        android:textColor="@color/white"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="92dp"
+        android:visibility="visible"
         android:layout_above="@+id/gotoInLobby"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="93dp"
-        android:visibility="visible" />
+        android:layout_centerHorizontal="true" />
 
     <!--
         TextView that displays the current time value.
     -->
     <TextView
         android:id="@+id/currentTimeValue"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/timeText"

@@ -18,12 +18,11 @@
     <string name="life">Life</string>
     <string name="color">Color:</string>
     <string name="name">Name:</string>
-    <string name="to_ingame">To Ingame</string>
     <string name="update">Update</string>
     <string name="create">Create</string>
     <string name="current_life_count">Current life count</string>
     <string name="current_time">Current time</string>
-    <string name="startig_lifecount">Startig LifeCount</string>
+    <string name="starting_lifecount">Starting LifeCount</string>
     <string name="time_limit">Time limit</string>
     <string name="time_on_off">Time on/off</string>
     <string name="_10">10</string>

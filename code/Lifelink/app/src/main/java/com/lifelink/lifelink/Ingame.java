@@ -14,8 +14,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Ingame extends AppCompatActivity {
     private int lifeTotal = 0;
+    private int intialTime = 0;
+    private int time = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +45,21 @@ public class Ingame extends AppCompatActivity {
                 return false;
             }
         });
+        final TextView textDisplay = (TextView) findViewById(R.id.time);
+        //if player is host...
+        lifeTotal = Integer.parseInt(playerProfile.getString("preferredLife","20"));
         display.setText(String.valueOf(this.getLifeTotal()));
+        /**
+        //Set time
+        textDisplay.setText(playerProfile.getString("preferredTime","120"));
+        Timer t = new Timer();
+        t.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                setTime(time-1, textDisplay);
+            }
+        }, 1000);
+*/
 
         //Buttons
         Button plus1 = (Button) findViewById(R.id.plus1);
@@ -89,4 +108,12 @@ public class Ingame extends AppCompatActivity {
     public void updateLifeTotalDisplay(TextView display) {
         display.setText(String.valueOf(this.getLifeTotal()));
     }
+/**
+    public void setTime(int amount, TextView textDisplay) {
+        time = amount;
+        int minutes = time%60;
+        int seconds = time - minutes*60;
+        textDisplay.setText("" + minutes + ":" + seconds);
+    }
+ */
 }
