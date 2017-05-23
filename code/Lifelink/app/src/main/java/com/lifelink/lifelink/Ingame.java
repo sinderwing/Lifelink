@@ -3,10 +3,13 @@ package com.lifelink.lifelink;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.view.GestureDetector;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -21,10 +24,12 @@ public class Ingame extends AppCompatActivity {
     private int lifeTotal = 0;
     private int intialTime = 0;
     private int time = 0;
+    private GestureDetector gestureDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences playerProfile = getSharedPreferences("playerProfile", Context.MODE_PRIVATE);
+        gestureDetector = new GestureDetector(this, new SingleTapConfirm());
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingame);
@@ -63,19 +68,83 @@ public class Ingame extends AppCompatActivity {
 
         //Buttons
         Button plus1 = (Button) findViewById(R.id.plus1);
-        plus1.setOnClickListener(new View.OnClickListener() {
+        plus1.setOnTouchListener(new View.OnTouchListener() {
+            private Handler mHandler;
+
             @Override
-            public void onClick(View view) {
-                increment(1, display);
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (gestureDetector.onTouchEvent(event)) {
+                    // single tap
+                    increment(1, display);
+                    if (mHandler == null) return true;
+                    mHandler.removeCallbacks(mAction);
+                    mHandler = null;
+                    return true;
+                } else {
+                    // held down
+                    switch(event.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            if (mHandler != null) return true;
+                            mHandler = new Handler();
+                            mHandler.postDelayed(mAction, 500);
+                            break;
+                        case MotionEvent.ACTION_UP:
+                            if (mHandler == null) return true;
+                            mHandler.removeCallbacks(mAction);
+                            mHandler = null;
+                            break;
+                    }
+                    return false;
+                }
             }
+
+            Runnable mAction = new Runnable() {
+                @Override public void run() {
+                    increment(10, display);
+                    mHandler.postDelayed(this, 500);
+                }
+            };
         });
 
         Button minus1 = (Button) findViewById(R.id.minus1);
-        minus1.setOnClickListener(new View.OnClickListener() {
+        minus1.setOnTouchListener(new View.OnTouchListener() {
+            private Handler mHandler;
+
             @Override
-            public void onClick(View view) {
-                increment(-1, display);
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (gestureDetector.onTouchEvent(event)) {
+                    // single tap
+                    increment(-1, display);
+                    if (mHandler == null) return true;
+                    mHandler.removeCallbacks(mAction);
+                    mHandler = null;
+                    return true;
+                } else {
+                    // held down
+                    switch(event.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            if (mHandler != null) return true;
+                            mHandler = new Handler();
+                            mHandler.postDelayed(mAction, 500);
+                            break;
+                        case MotionEvent.ACTION_UP:
+                            if (mHandler == null) return true;
+                            mHandler.removeCallbacks(mAction);
+                            mHandler = null;
+                            break;
+                    }
+                    return false;
+                }
             }
+
+            Runnable mAction = new Runnable() {
+                @Override public void run() {
+                    increment(-10, display);
+                    mHandler.postDelayed(this, 500);
+                }
+            };
         });
 
         //TextViews
@@ -108,6 +177,15 @@ public class Ingame extends AppCompatActivity {
     public void updateLifeTotalDisplay(TextView display) {
         display.setText(String.valueOf(this.getLifeTotal()));
     }
+
+    private class SingleTapConfirm extends GestureDetector.SimpleOnGestureListener {
+
+        @Override
+        public boolean onSingleTapUp(MotionEvent event) {
+            return true;
+        }
+    }
+
 /**
     public void setTime(int amount, TextView textDisplay) {
         time = amount;
