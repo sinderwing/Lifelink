@@ -16,6 +16,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -40,7 +41,12 @@ public class Ingame extends AppCompatActivity {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    setLifeTotal(display);
+                    if(! display.getText().toString().equals("")) {
+                        setLifeTotal(display);
+                    } else {
+                        Toast.makeText(Ingame.this,"Invalid input", Toast.LENGTH_SHORT).show();
+                        updateLifeTotalDisplay(display);
+                    }
 
                     //Hide the keyboard
                     InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
