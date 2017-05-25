@@ -3,6 +3,7 @@ package com.lifelink.lifelink;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -76,6 +77,7 @@ public class Ingame extends AppCompatActivity {
         Button plus1 = (Button) findViewById(R.id.plus1);
         plus1.setOnTouchListener(new View.OnTouchListener() {
             private Handler mHandler;
+            MediaPlayer mp = MediaPlayer.create(Ingame.this, R.raw.supahotfire);
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -85,6 +87,7 @@ public class Ingame extends AppCompatActivity {
                     increment(1, display);
                     if (mHandler == null) return true;
                     mHandler.removeCallbacks(mAction);
+                    mHandler.removeCallbacks(mPlay);
                     mHandler = null;
                     return true;
                 } else {
@@ -94,10 +97,12 @@ public class Ingame extends AppCompatActivity {
                             if (mHandler != null) return true;
                             mHandler = new Handler();
                             mHandler.postDelayed(mAction, 500);
+                            mHandler.postDelayed(mPlay, 2000);
                             break;
                         case MotionEvent.ACTION_UP:
                             if (mHandler == null) return true;
                             mHandler.removeCallbacks(mAction);
+                            mHandler.removeCallbacks(mPlay);
                             mHandler = null;
                             break;
                     }
@@ -109,6 +114,14 @@ public class Ingame extends AppCompatActivity {
                 @Override public void run() {
                     increment(10, display);
                     mHandler.postDelayed(this, 500);
+                }
+            };
+
+            Runnable mPlay = new Runnable() {
+                @Override
+                public void run() {
+                    mp.start();
+                    mHandler.postDelayed(this, 2000);
                 }
             };
         });
