@@ -33,4 +33,5 @@
     <string name="opponent3">Opponent3</string>
     <string name="pass_turn">Pass Turn</string>
     <string name="_1_30">1:30</string>
+    <string name="title_activity_settings">Settings</string>
 </resources>

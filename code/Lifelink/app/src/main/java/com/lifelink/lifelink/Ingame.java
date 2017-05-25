@@ -97,7 +97,7 @@ public class Ingame extends AppCompatActivity {
                             if (mHandler != null) return true;
                             mHandler = new Handler();
                             mHandler.postDelayed(mAction, 500);
-                            mHandler.postDelayed(mPlay, 2000);
+                            mHandler.postDelayed(mPlay, 1200);
                             break;
                         case MotionEvent.ACTION_UP:
                             if (mHandler == null) return true;
@@ -120,8 +120,12 @@ public class Ingame extends AppCompatActivity {
             Runnable mPlay = new Runnable() {
                 @Override
                 public void run() {
-                    mp.start();
-                    mHandler.postDelayed(this, 2000);
+                    SharedPreferences playerProfile = getSharedPreferences("playerProfile", Context.MODE_PRIVATE);
+                    boolean sound = Boolean.parseBoolean(playerProfile.getString("sound", "true"));
+                    if (sound) {
+                        mp.start();
+                        mHandler.postDelayed(this, 2000);
+                    }
                 }
             };
         });
