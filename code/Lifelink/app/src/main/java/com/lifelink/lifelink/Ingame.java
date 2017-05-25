@@ -88,6 +88,7 @@ public class Ingame extends AppCompatActivity {
                     if (mHandler == null) return true;
                     mHandler.removeCallbacks(mAction);
                     mHandler.removeCallbacks(mPlay);
+
                     mHandler = null;
                     return true;
                 } else {
@@ -98,6 +99,7 @@ public class Ingame extends AppCompatActivity {
                             mHandler = new Handler();
                             mHandler.postDelayed(mAction, 500);
                             mHandler.postDelayed(mPlay, 1200);
+
                             break;
                         case MotionEvent.ACTION_UP:
                             if (mHandler == null) return true;
