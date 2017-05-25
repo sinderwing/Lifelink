@@ -40,6 +40,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button gotoSettings = (Button) findViewById(R.id.gotoSettings);
+        gotoSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Settings.class);
+                startActivity(intent);
+            }
+        });
+
         //Saved preferences
         nameInput = (EditText) findViewById(R.id.nameInput);
         colorInput = (EditText) findViewById(R.id.colorInput);

@@ -77,10 +77,11 @@
         android:id="@+id/updateInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:onClick="updateProfile"
-        android:text="@string/update" />
+        android:text="@string/update"
+        android:layout_below="@+id/colorInput"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp" />
 
     <TextView
         android:id="@+id/color"
@@ -96,5 +97,15 @@
         android:layout_alignStart="@+id/name"
         android:layout_alignRight="@+id/name"
         android:layout_alignEnd="@+id/name" />
+
+    <Button
+        android:id="@+id/gotoSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:elevation="0dp"
+        android:text="Settings" />
 
 </RelativeLayout>
