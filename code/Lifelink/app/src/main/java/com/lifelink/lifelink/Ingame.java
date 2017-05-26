@@ -73,14 +73,23 @@ public class Ingame extends AppCompatActivity {
             case 2:
                 setOpponenOneInvisible();
                 setOpponenThreeInvisible();
+                opp2.setText("Opponent1");
                 break;
             case 3:
                 setOpponenTwoInvisible();
+                opp1.setText("Opponent1");
+                opp3.setText("Opponent2");
                 break;
             case 4:
+                opp1.setText("Opponent1");
+                opp2.setText("Opponent2");
+                opp3.setText("Opponent3");
                 // do nothing
                 break;
             default:
+                opp1.setText("Opponent1");
+                opp2.setText("Opponent2");
+                opp3.setText("Opponent3");
                 // do nohing
                 break;
         }
