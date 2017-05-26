@@ -150,6 +150,16 @@ public class Ingame extends AppCompatActivity {
             }
         });
 
+        // Hide time settings if they are turned off
+        boolean timeOn = Boolean.parseBoolean(playerProfile.getString("timeOn", "true"));
+        if (!timeOn) {
+            timeDisplay.setVisibility(View.INVISIBLE);
+            timeButton.setVisibility(View.INVISIBLE);
+        } else {
+            timeDisplay.setVisibility(View.VISIBLE);
+            timeButton.setVisibility(View.VISIBLE);
+        }
+
         // Plus buttons
         Button plus1 = (Button) findViewById(R.id.plus1);
         plus1.setOnTouchListener(new View.OnTouchListener() {
