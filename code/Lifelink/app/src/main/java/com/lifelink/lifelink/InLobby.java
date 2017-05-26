@@ -1,12 +1,16 @@
 package com.lifelink.lifelink;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.net.wifi.p2p.WifiP2pManager.Channel;
@@ -90,6 +94,23 @@ public class InLobby extends FragmentActivity implements
         });
 
         final TextView numberOfPlayersValueView = (TextView) findViewById(R.id.numberOfPlayersValue);
+        numberOfPlayersValueView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    if (numberOfPlayersValueView.getText().toString().equals("")) {
+                        Toast.makeText(InLobby.this, "Invalid input", Toast.LENGTH_SHORT).show();
+                        numberOfPlayersValueView.setText("1"); //reset to one
+                    }
+
+                    //Hide the keyboard
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(numberOfPlayersValueView.getWindowToken(), 0);
+                    return true;
+                }
+                return false;
+            }
+        });
 
 
 

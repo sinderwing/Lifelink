@@ -71,11 +71,11 @@ public class Ingame extends AppCompatActivity {
                 setOpponenThreeInvisible();
                 break;
             case 2:
-                setOpponenTwoInvisible();
+                setOpponenOneInvisible();
                 setOpponenThreeInvisible();
                 break;
             case 3:
-                setOpponenThreeInvisible();
+                setOpponenTwoInvisible();
                 break;
             case 4:
                 // do nothing
