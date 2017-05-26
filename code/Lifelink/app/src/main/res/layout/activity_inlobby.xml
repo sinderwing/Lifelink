@@ -27,6 +27,27 @@
         </fragment>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/numberOfPlayersTextInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number of players: "
+        android:layout_marginBottom="83dp"
+        android:layout_above="@+id/startGame"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"/>
+
+    <EditText
+        android:id="@+id/numberOfPlayersValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textColor="@color/white"
+        android:layout_alignTop="@+id/numberOfPlayersTextInfo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent" />
+
     <!--
         Button to start the game.
     -->

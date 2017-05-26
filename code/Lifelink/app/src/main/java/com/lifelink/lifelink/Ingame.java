@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -28,6 +30,15 @@ public class Ingame extends AppCompatActivity {
     private int time = 0;
     private GestureDetector gestureDetector;
 
+    private TextView opp1, opp2, opp3;
+    private TextView oppLife1, oppLife2, oppLife3;
+
+    private TextView timeDisplay;
+
+    private boolean timeTicking;
+    private int currentTime;
+    private CountDownTimer countDownTimer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences playerProfile = getSharedPreferences("playerProfile", Context.MODE_PRIVATE);
@@ -35,6 +46,44 @@ public class Ingame extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingame);
+
+        Bundle bundle = getIntent().getExtras();
+
+        int numberOfPlayers = 3;
+
+        if (bundle != null) {
+            numberOfPlayers = (int) bundle.get("NUMBER_OF_PLAYERS");
+        }
+
+        // TextViews
+        opp1 = (TextView) findViewById(R.id.Opponent1);
+        opp2 = (TextView) findViewById(R.id.Opponent2);
+        opp3 = (TextView) findViewById(R.id.Opponent3);
+        oppLife1 = (TextView) findViewById(R.id.OpponentLife1);
+        oppLife2 = (TextView) findViewById(R.id.OpponentLife2);
+        oppLife3 = (TextView) findViewById(R.id.OpponentLife3);
+
+        // Set appropiate amount of opponents
+        switch (numberOfPlayers) {
+            case 1:
+                setOpponenOneInvisible();
+                setOpponenTwoInvisible();
+                setOpponenThreeInvisible();
+                break;
+            case 2:
+                setOpponenTwoInvisible();
+                setOpponenThreeInvisible();
+                break;
+            case 3:
+                setOpponenThreeInvisible();
+                break;
+            case 4:
+                // do nothing
+                break;
+            default:
+                // do nohing
+                break;
+        }
 
         final EditText display = (EditText) findViewById(R.id.lifeTotalDisplay);
         display.setBackgroundColor(Color.parseColor(playerProfile.getString("color", "#ffffff")));
@@ -57,23 +106,42 @@ public class Ingame extends AppCompatActivity {
                 return false;
             }
         });
-        final TextView textDisplay = (TextView) findViewById(R.id.time);
         //if player is host...
         lifeTotal = Integer.parseInt(playerProfile.getString("preferredLife","20"));
         display.setText(String.valueOf(this.getLifeTotal()));
-        /**
-        //Set time
-        textDisplay.setText(playerProfile.getString("preferredTime","120"));
-        Timer t = new Timer();
-        t.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                setTime(time-1, textDisplay);
-            }
-        }, 1000);
-*/
 
-        //Buttons
+        // Set opponents life
+        oppLife1.setText(String.valueOf(lifeTotal));
+        oppLife2.setText(String.valueOf(lifeTotal));
+        oppLife3.setText(String.valueOf(lifeTotal));
+
+        // Set starting time
+        timeDisplay = (TextView) findViewById(R.id.time);
+        int startingTime = Integer.parseInt(playerProfile.getString("preferredTime","120"));
+        setTime(startingTime);
+        currentTime = startingTime;
+
+        timeTicking = true;
+        newCountDownTimer();
+
+        // Time buttons
+        final Button timeButton = (Button) findViewById(R.id.pass);
+        timeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (timeTicking) {
+                    timeButton.setText("Resume turn");
+                    timeTicking = false;
+                    stopCountDownTimer();
+                } else {
+                    timeButton.setText("Pass turn");
+                    timeTicking = true;
+                    newCountDownTimer();
+                }
+            }
+        });
+
+        // Plus buttons
         Button plus1 = (Button) findViewById(R.id.plus1);
         plus1.setOnTouchListener(new View.OnTouchListener() {
             private Handler mHandler;
@@ -172,16 +240,61 @@ public class Ingame extends AppCompatActivity {
             };
         });
 
-        //TextViews
-        TextView opp1 = (TextView) findViewById(R.id.Opponent1);
-        TextView opp2 = (TextView) findViewById(R.id.Opponent2);
-        TextView opp3 = (TextView) findViewById(R.id.Opponent3);
-        TextView oppLife1 = (TextView) findViewById(R.id.OpponentLife1);
-        TextView oppLife2 = (TextView) findViewById(R.id.OpponentLife2);
-        TextView oppLife3 = (TextView) findViewById(R.id.OpponentLife3);
-
         //TODO set opponents colors
         //opponent1.setBackgroundResource("#ffffff") Take variables over Network connection
+    }
+
+    private void stopCountDownTimer() {
+        if (countDownTimer == null) {
+            return;
+        }
+        countDownTimer.cancel();
+    }
+
+    private void newCountDownTimer() {
+        countDownTimer = new CountDownTimer(currentTime*1000 + 1000, 1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                tickTime();
+            }
+
+            @Override
+            public void onFinish() {
+                timeOut();
+            }
+        }.start();
+    }
+
+    private void timeOut() {
+        Toast.makeText(this, "Time out!", Toast.LENGTH_SHORT).show();
+    }
+
+    private void tickTime() {
+        currentTime--;
+        setTime(currentTime);
+    }
+
+    private void setTime(int amount) {
+        time = amount;
+        int minutes = (int)Math.floor(time/60);
+        int seconds = time - 60*minutes;
+        timeDisplay.setText("" + minutes + ":" + seconds);
+    }
+
+    private void setOpponenOneInvisible() {
+        opp1.setVisibility(View.INVISIBLE);
+        oppLife1.setVisibility(View.INVISIBLE);
+    }
+
+    private void setOpponenTwoInvisible() {
+        opp2.setVisibility(View.INVISIBLE);
+        oppLife2.setVisibility(View.INVISIBLE);
+    }
+
+    private void setOpponenThreeInvisible() {
+        opp3.setVisibility(View.INVISIBLE);
+        oppLife3.setVisibility(View.INVISIBLE);
     }
 
     //Life counter implementation
@@ -211,12 +324,4 @@ public class Ingame extends AppCompatActivity {
         }
     }
 
-/**
-    public void setTime(int amount, TextView textDisplay) {
-        time = amount;
-        int minutes = time%60;
-        int seconds = time - minutes*60;
-        textDisplay.setText("" + minutes + ":" + seconds);
-    }
- */
 }

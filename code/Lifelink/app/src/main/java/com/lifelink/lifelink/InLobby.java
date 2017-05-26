@@ -2,6 +2,7 @@ package com.lifelink.lifelink;
 
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,7 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.net.wifi.p2p.WifiP2pManager.Channel;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 
 /**
@@ -20,6 +24,8 @@ import android.widget.Toast;
  */
 public class InLobby extends FragmentActivity implements
         WifiP2pManager.ChannelListener {
+
+    private int numberOfPlayers;
 
     public static final String TAG = "InLobbyActivity";
 
@@ -45,6 +51,8 @@ public class InLobby extends FragmentActivity implements
         super.onCreate(savedInstanceState);
         Log.d(TAG, "This should print");
         setContentView(R.layout.activity_inlobby);
+
+        numberOfPlayers = 1;
 
         // Adds broadcast to the IntentFilter when the Wi-Fi P2P status is changed.
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION);
@@ -81,7 +89,11 @@ public class InLobby extends FragmentActivity implements
             }
         });
 
-        // Button to start the game.
+        final TextView numberOfPlayersValueView = (TextView) findViewById(R.id.numberOfPlayersValue);
+
+
+
+                // Button to start the game.
         Button startGame = (Button) findViewById(R.id.startGame);
         startGame.setOnClickListener(new View.OnClickListener() {
             /**
@@ -91,6 +103,8 @@ public class InLobby extends FragmentActivity implements
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(InLobby.this, Ingame.class);
+                numberOfPlayers = Integer.parseInt(numberOfPlayersValueView.getText().toString());
+                intent.putExtra("NUMBER_OF_PLAYERS", numberOfPlayers);
                 startActivity(intent);
             }
         });
