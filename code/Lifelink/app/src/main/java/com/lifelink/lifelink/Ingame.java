@@ -36,6 +36,7 @@ public class Ingame extends AppCompatActivity {
     private TextView timeDisplay;
 
     private boolean timeTicking;
+    private int startingTime;
     private int currentTime;
     private CountDownTimer countDownTimer;
 
@@ -126,12 +127,11 @@ public class Ingame extends AppCompatActivity {
 
         // Set starting time
         timeDisplay = (TextView) findViewById(R.id.time);
-        int startingTime = Integer.parseInt(playerProfile.getString("preferredTime","120"));
+        startingTime = Integer.parseInt(playerProfile.getString("preferredTime","120"));
         setTime(startingTime);
-        currentTime = startingTime;
 
-        timeTicking = true;
-        newCountDownTimer();
+        currentTime = startingTime;
+        timeTicking = false;
 
         // Time buttons
         final Button timeButton = (Button) findViewById(R.id.pass);
@@ -139,7 +139,7 @@ public class Ingame extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (timeTicking) {
-                    timeButton.setText("Resume turn");
+                    timeButton.setText("Start");
                     timeTicking = false;
                     stopCountDownTimer();
                 } else {
@@ -149,6 +149,16 @@ public class Ingame extends AppCompatActivity {
                 }
             }
         });
+
+        // Hide time settings if they are turned off
+        boolean timeOn = Boolean.parseBoolean(playerProfile.getString("timeOn", "true"));
+        if (!timeOn) {
+            timeDisplay.setVisibility(View.INVISIBLE);
+            timeButton.setVisibility(View.INVISIBLE);
+        } else {
+            timeDisplay.setVisibility(View.VISIBLE);
+            timeButton.setVisibility(View.VISIBLE);
+        }
 
         // Plus buttons
         Button plus1 = (Button) findViewById(R.id.plus1);
@@ -258,10 +268,12 @@ public class Ingame extends AppCompatActivity {
             return;
         }
         countDownTimer.cancel();
+        currentTime = startingTime;
+        setTime(startingTime    );
     }
 
     private void newCountDownTimer() {
-        countDownTimer = new CountDownTimer(currentTime*1000 + 1000, 1000) {
+        countDownTimer = new CountDownTimer(startingTime*1000 + 1000, 1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {
@@ -288,7 +300,11 @@ public class Ingame extends AppCompatActivity {
         time = amount;
         int minutes = (int)Math.floor(time/60);
         int seconds = time - 60*minutes;
-        timeDisplay.setText("" + minutes + ":" + seconds);
+        String extraZero = "";
+        if (seconds < 10) {
+            extraZero = "0";
+        }
+        timeDisplay.setText("" + minutes + ":" + extraZero + seconds);
     }
 
     private void setOpponenOneInvisible() {

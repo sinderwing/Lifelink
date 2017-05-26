@@ -17,6 +17,8 @@ import android.widget.Button;
  */
 public class LobbyCreation extends AppCompatActivity {
 
+    private boolean timeOn;
+
     /**
      * Called when the instance is first created.
      * @param savedInstanceState the previous instant state.
@@ -100,8 +102,9 @@ public class LobbyCreation extends AppCompatActivity {
             }
         });
 
+        timeOn = Boolean.parseBoolean(playerProfile.getString("timeOn", "true"));
          // Toggle time settings on/off.
-        ToggleButton timeOnOff = (ToggleButton) findViewById(R.id.setTimeOnOff);
+        final ToggleButton timeOnOff = (ToggleButton) findViewById(R.id.setTimeOnOff);
         final TextView timeText = (TextView) findViewById(R.id.timeText);
         timeOnOff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -111,12 +114,14 @@ public class LobbyCreation extends AppCompatActivity {
                     currentTimeValue.setVisibility(View.VISIBLE);
                     setTimeValue.setVisibility(View.VISIBLE);
                     timeText.setVisibility(View.VISIBLE);
+                    timeOn = true;
                 } else {
                     // The toggle is disabled
                     // Hide all time settings
                     currentTimeValue.setVisibility(View.INVISIBLE);
                     setTimeValue.setVisibility(View.INVISIBLE);
                     timeText.setVisibility(View.INVISIBLE);
+                    timeOn = false;
                 }
             }
         });
@@ -134,6 +139,7 @@ public class LobbyCreation extends AppCompatActivity {
                 SharedPreferences.Editor editor = playerProfile.edit();
                 editor.putString("preferredLife", currentLifeCount.getText().toString());
                 editor.putString("preferredTime", currentTimeValue.getText().toString());
+                editor.putString("timeOn", String.valueOf(timeOn));
 
                 editor.apply();
 
